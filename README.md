@@ -1,6 +1,6 @@
 # AULA F75 + Kanata
 
-![AULA F75 + Kanata](assets/cover.png)
+![AULA F75 + Kanata](assets/cover.jpeg)
 
 🇧🇷 Português · [🇺🇸 English](README.en.md)
 
@@ -102,7 +102,7 @@ docs/
 linux/
   kanata.service      serviço systemd de usuário
 assets/
-  cover.png           imagem de capa
+  cover.jpeg          imagem de capa
 ```
 
 ## Diferenças entre Windows e Linux
