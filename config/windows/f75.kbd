@@ -1,0 +1,112 @@
+;; =====================================================================
+;;  AULA F75 + Kanata  —  C:\Kanata\f75.kbd
+;; ---------------------------------------------------------------------
+;;  Fluxo:  F75 (USB-C / 2.4 GHz / BT) -> Windows HID -> Kanata -> aplicação
+;;  Firmware do F75 NÃO é alterado. Nada de QMK/VIA.
+;;
+;;  Camadas:
+;;    base        -> layout normal (+ Tab/J/RCtrl com tap-hold)
+;;    nav         -> Tab segurado       (I/J/K/L = setas ...)
+;;    util        -> RCtrl segurado     (ç, ~ ^, / ?, play/pause ...)
+;;                   (o Fn físico é do firmware e não chega ao Windows,
+;;                    por isso a camada utilitária fica no RCtrl ao lado)
+;;
+;;  SAÍDA DE EMERGÊNCIA: LCtrl + Espaço + Esc  (fecha o Kanata)
+;;
+;;  Premissa: layout do Windows = "Português (Brasil ABNT2)".
+;;  Tecla ao lado do L:  base = ; (Shift = :)   | RCtrl+ = ç (Shift = Ç)
+;;  Tecla seguinte:      base = " (Shift = ')   | RCtrl+ = ~ (Shift = ^)
+;;  Tecla ao lado do P:  base = { (Shift = [)   | RCtrl+ = ´ (Shift = `)
+;;  2ª depois do P:      base = } (Shift = ])   | RCtrl+ = ª
+;;  3ª depois do P:      base = \ (Shift = |)   | RCtrl+ = º
+;;  Tecla à esquerda do 1: base = ~ (Shift = `)  (acentos)
+;;  Tecla /?: base = / (Shift = ?)
+;;  Tecla 6:   base = 6 (Shift = ^)
+;;  RCtrl+Q = /   RCtrl+W = ?   RCtrl+Z/X/C = faixa anterior/play/próxima
+;; =====================================================================
+
+(defcfg
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
+)
+
+;; Teclas físicas monitoradas (bloco principal do 75%).
+;; Teclas não listadas (Del/PgUp/PgDn da coluna direita, knob) passam direto.
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft up
+  lctl lmet lalt spc  ralt rctl left down rght
+)
+
+(defalias
+  ;; ---- tap-hold ----
+  ;; Tab: toque = Tab | segurar = NAV
+  tab (tap-hold-press 200 200 tab (layer-while-held nav))
+  ;; J: toque = j | segurar = ← (tap-hold simples, para não atrapalhar a digitação)
+  j   (tap-hold 200 200 j left)
+  ;; RCtrl: toque = RCtrl | segurar = UTIL
+  rct (tap-hold 200 200 rctl (layer-while-held util))
+
+  ;; ---- teclas ao lado do L (Windows em ABNT2) ----
+  ;; ; e : ficam na posição do / no ABNT2
+  sc  /
+  ;; " sem Shift, ' com Shift (aspas simples = tecla ` no ABNT2)
+  qt  (fork S-grv (unshift grv) (lsft rsft))
+  ;; ç/Ç e ~/^ (acentos mortos) = as teclas originais do ABNT2
+  cc  ;
+  til '
+
+  ;; ---- teclas ao lado do P (Windows em ABNT2) ----
+  ;; { sem Shift, [ com Shift (ordem invertida após teste no teclado real)
+  lbr (fork (unshift ]) S-] (lsft rsft))
+  ;; } sem Shift, ] com Shift
+  rbr (fork (unshift \) S-\ (lsft rsft))
+  ;; \ e | ficam na tecla extra do ABNT2 (ao lado do Shift esquerdo)
+  bsl nubs
+  ;; ´ (Shift = `) = tecla original do ABNT2 nessa posição
+  agu [
+  ;; ---- tecla à esquerda do 1 (Windows em ABNT2) ----
+  ;; ~ sem Shift, ` com Shift (a tecla [ com Shift = crase no ABNT2)
+  tl  (fork ' [ (lsft rsft))
+  ;; / e ? (enviados como caractere, não dependem do AltGr)
+  sl  (unicode /)
+  qm  (unicode ?)
+  ;; tecla / física: / sem Shift, ? com Shift
+  slq (fork @sl @qm (lsft rsft))
+  ;; 6 sem Shift, ^ com Shift (a tecla ' com Shift = circunflexo no ABNT2)
+  six (fork 6 ' (lsft rsft))
+  ord-a (unicode ª)
+  ord-o (unicode º)
+)
+
+(deflayer base
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  @tl  1    2    3    4    5    @six 7    8    9    0    -    =    bspc
+  @tab q    w    e    r    t    y    u    i    o    p    @lbr @rbr @bsl
+  caps a    s    d    f    g    h    @j   k    l    @sc  @qt  ret
+  lsft z    x    c    v    b    n    m    ,    .    @slq rsft up
+  lctl lmet lalt spc  ralt @rct left down rght
+)
+
+;; Tab segurado
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    del
+  _    _    _    _    _    _    pgup home up   end  _    _    _    _
+  _    _    _    _    _    _    pgdn left down rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _
+)
+
+;; RCtrl segurado (camada utilitária)
+(deflayer util
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @sl  @qm  _    _    _    _    _    _    _    _    @agu @ord-a @ord-o
+  _    _    _    _    _    _    _    _    _    _    @cc  @til _
+  _    prev pp   next _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _
+)
