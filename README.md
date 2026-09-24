@@ -1,5 +1,9 @@
 # AULA F75 + Kanata
 
+![AULA F75 + Kanata](assets/cover.png)
+
+🇧🇷 Português · [🇺🇸 English](README.en.md)
+
 Layout personalizado para o teclado **AULA F75** usando o [Kanata](https://github.com/jtroo/kanata), um remapeador de teclas por software. O firmware do teclado não é alterado (nada de QMK/VIA).
 
 ```
@@ -94,8 +98,11 @@ docs/
   macos.md            rascunho da instalação no macOS
   milestones.md       etapas do projeto e status
   image-prompt.md     prompt para gerar a imagem das camadas
+  en/                 guias em inglês
 linux/
   kanata.service      serviço systemd de usuário
+assets/
+  cover.png           imagem de capa
 ```
 
 ## Diferenças entre Windows e Linux
