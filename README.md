@@ -45,8 +45,8 @@ Legenda de baixo = tecla sozinha, legenda de cima = com Shift. Só estão listad
 | Ao lado do P | `{` | `[` |
 | 2ª depois do P | `}` | `]` |
 | 3ª depois do P | `\` | `\|` |
-| Ao lado do L | `;` | `:` |
-| 2ª depois do L | `"` | `'` |
+| Ao lado do L | `ç` | `Ç` |
+| 2ª depois do L | `~` (acento) | `^` (acento) |
 | `/` | `/` | `?` |
 
 Teclas com dupla função (tap-hold):
@@ -66,8 +66,8 @@ Teclas com dupla função (tap-hold):
 | Ao lado do P | `´` (acento) | `` ` `` (acento) |
 | 2ª depois do P | `ª` | – |
 | 3ª depois do P | `º` | – |
-| Ao lado do L | `ç` | `Ç` |
-| 2ª depois do L | `~` (acento) | `^` (acento) |
+| Ao lado do L | `;` | `:` |
+| 2ª depois do L | `"` | `'` |
 | Z / X / C | faixa anterior / play-pause / próxima | – |
 
 ### NAV (segurando Tab)

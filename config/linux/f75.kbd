@@ -14,8 +14,8 @@
 ;;  SAÍDA DE EMERGÊNCIA: LCtrl + Espaço + Esc  (fecha o Kanata)
 ;;
 ;;  Premissa: layout do sistema = "Português (Brasil)" (ABNT2).
-;;  Tecla ao lado do L:  base = ; (Shift = :)   | RCtrl+ = ç (Shift = Ç)
-;;  Tecla seguinte:      base = " (Shift = ')   | RCtrl+ = ~ (Shift = ^)
+;;  Tecla ao lado do L:  base = ç (Shift = Ç)   | RCtrl+ = ; (Shift = :)
+;;  Tecla seguinte:      base = ~ (Shift = ^)   | RCtrl+ = " (Shift = ')
 ;;  Tecla ao lado do P:  base = { (Shift = [)   | RCtrl+ = ´ (Shift = `)
 ;;  2ª depois do P:      base = } (Shift = ])   | RCtrl+ = ª
 ;;  3ª depois do P:      base = \ (Shift = |)   | RCtrl+ = º
@@ -85,7 +85,7 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   @tl  1    2    3    4    5    @six 7    8    9    0    -    =    bspc
   @tab q    w    e    r    t    y    u    i    o    p    @lbr @rbr @bsl
-  caps a    s    d    f    g    h    @j   k    l    @sc  @qt  ret
+  caps a    s    d    f    g    h    @j   k    l    @cc  @til ret
   lsft z    x    c    v    b    n    m    ,    .    @slq rsft up
   lctl lmet lalt spc  ralt @rct left down rght
 )
@@ -105,7 +105,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @sl  @qm  _    _    _    _    _    _    _    _    @agu @ord-a @ord-o
-  _    _    _    _    _    _    _    _    _    _    @cc  @til _
+  _    _    _    _    _    _    _    _    _    _    @sc  @qt  _
   _    prev pp   next _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _
 )

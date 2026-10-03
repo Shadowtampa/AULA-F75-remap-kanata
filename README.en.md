@@ -45,8 +45,8 @@ Only keys that differ from the keycap legends are listed.
 | Right of P | `{` | `[` |
 | 2nd right of P | `}` | `]` |
 | 3rd right of P | `\` | `\|` |
-| Right of L | `;` | `:` |
-| 2nd right of L | `"` | `'` |
+| Right of L | `ç` | `Ç` |
+| 2nd right of L | `~` (dead key) | `^` (dead key) |
 | `/` | `/` | `?` |
 
 Dual-function keys (tap-hold):
@@ -66,8 +66,8 @@ Dual-function keys (tap-hold):
 | Right of P | `´` (dead key) | `` ` `` (dead key) |
 | 2nd right of P | `ª` | – |
 | 3rd right of P | `º` | – |
-| Right of L | `ç` | `Ç` |
-| 2nd right of L | `~` (dead key) | `^` (dead key) |
+| Right of L | `;` | `:` |
+| 2nd right of L | `"` | `'` |
 | Z / X / C | previous track / play-pause / next track | – |
 
 ### NAV (hold Tab)

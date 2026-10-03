@@ -21,8 +21,8 @@ All keys show standard legends, except these, highlighted in bright yellow:
 - key right of P: bottom "{", top "["
 - second key right of P: bottom "}", top "]"
 - third key right of P: bottom "\", top "|"
-- key right of L: bottom ";", top ":"
-- second key right of L: bottom "\"", top "'"
+- key right of L: bottom "ç", top "Ç"
+- second key right of L: bottom "~", top "^"
 - key right of period: bottom "/", top "?"
 Small labels: Tab "hold = NAV"; J "hold = ←"; UTIL key (right of Space) "tap = Ctrl, hold = UTIL".
 
@@ -33,8 +33,8 @@ UTIL key pressed and glowing orange. All other keys dimmed gray and blank, excep
 - key right of P: bottom "´", top "`"
 - second key right of P: "ª"
 - third key right of P: "º"
-- key right of L: bottom "ç", top "Ç"
-- second key right of L: bottom "~", top "^"
+- key right of L: bottom ";", top ":"
+- second key right of L: bottom "\"", top "'"
 - Z: "⏮ previous track"
 - X: "⏯ play/pause"
 - C: "⏭ next track"
